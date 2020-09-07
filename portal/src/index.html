@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>caicloud-micro</title>
+    <!-- Static navbar -->
+    <!-- <link rel="stylesheet" href="/public/style.css" /> -->
+    <!-- <script type="systemjs-importmap">
+      {
+        "imports": {
+          "react": "/react.development.js",
+          "react-dom": "/react-dom.development.js",
+          "react-router-dom": "/react-router-dom.js",
+          "react-router": "/react-router-dom.js",
+          "react-router-config": "/react-router-config.js",
+          "antd": "/antd.js",
+          "@micro/portal": "/index.js",
+          "@micro/app-web": "http://localhost:9011/index.js",
+          "@micro/devops-web": "http://localhost:9012/index.js"
+        }
+      }
+    </script> -->
+    <script type="systemjs-importmap">
+      {
+        "imports": {
+          "react": "/react.development.js",
+          "react-dom": "/react-dom.development.js",
+          "react-router-dom": "/react-router-dom.js",
+          "react-router": "/react-router-dom.js",
+          "react-router-config": "/react-router-config.js",
+          "moment": "/moment-with-locales.js",
+          "antd": "/antd.js"
+        }
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/system.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/extras/amd.js"></script>
+    <!-- The named-exports extra is important to avoid having to rxjs.default.of() (and similar for all other rxjs functions) -->
+    <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/extras/named-exports.js"></script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <script type="systemjs-importmap">
+      {
+        "imports": {
+          "@micro/portal": "/index.js"
+        }
+      }
+    </script>
+    <!-- <script type="systemjs-module" src="import:@micro/portal"></script> -->
+
+    <script type="systemjs-importmap">
+      {
+        "imports": {
+          "@micro/app-web": "http://localhost:9011/index.js"
+        }
+      }
+    </script>
+    <script type="systemjs-module" src="import:@micro/app-web"></script>
+
+    <script type="systemjs-importmap">
+      {
+        "imports": {
+          "@micro/devops-web": "http://localhost:9012/index.js"
+        }
+      }
+    </script>
+    <script type="systemjs-module" src="import:@micro/devops-web"></script>
+    <script>
+      System.import('@micro/portal').then(({ render }) => render());
+    </script>
+    <!-- <script>
+      System.import('@micro/portal');
+      System.import('@micro/app-web');
+      System.import('@micro/devops-web');
+    </script> -->
+    <!-- Load the application -->
+    <!-- <script src="/public/main.js"></script> -->
+  </body>
+</html>
