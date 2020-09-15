@@ -14,16 +14,19 @@ module.exports = {
     publicPath: '/',
     filename: '[name].js',
     path: path.resolve(__dirname, 'release'),
-    libraryTarget: 'umd',
+    libraryTarget: 'this',
     library: '@micro/portal',
     // chunkFilename: '[name].bundle.js',
   },
 
   externals: {
-    react: 'react',
-    'react-dom': 'react-dom',
-    'react-router-dom': 'react-router-dom',
-    'react-router-config': 'react-router-config',
+    // react: 'react',
+    react: 'React',
+    // 'react-dom': 'react-dom',
+    'react-dom': 'ReactDOM',
+    // 'react-router-dom': 'react-router-dom',
+    'react-router-dom': 'ReactRouterDOM',
+    'react-router-config': 'ReactRouterConfig',
     antd: 'antd',
     moment: 'moment',
   },
@@ -104,6 +107,12 @@ module.exports = {
     }),
     new webpack.ProvidePlugin({
       React: 'react',
+    }),
+    // 定义变量
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+      },
     }),
   ],
 

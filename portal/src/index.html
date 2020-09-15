@@ -21,63 +21,34 @@
         }
       }
     </script> -->
-    <script type="systemjs-importmap">
-      {
-        "imports": {
-          "react": "/react.development.js",
-          "react-dom": "/react-dom.development.js",
-          "react-router-dom": "/react-router-dom.js",
-          "react-router": "/react-router-dom.js",
-          "react-router-config": "/react-router-config.js",
-          "moment": "/moment-with-locales.js",
-          "antd": "/antd.js"
-        }
-      }
+    <script src="/react.development.js"></script>
+    <script src="/react-dom.development.js"></script>
+    <script src="/react-router-dom.js"></script>
+
+    <script>
+      window.ReactRouter = window.ReactRouterDOM;
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/system.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/extras/amd.js"></script>
-    <!-- The named-exports extra is important to avoid having to rxjs.default.of() (and similar for all other rxjs functions) -->
-    <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/extras/named-exports.js"></script>
+    <script src="/react-router-config.js"></script>
+    <script src="/moment-with-locales.js"></script>
+    <script src="/antd.js"></script>
+    <!-- <script>
+      const process = { env: { NODE_ENV: 'development' } };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/react@16.13.1/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-dom@16.13.1/cjs/react-dom.development.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-router-dom@5.2.0/cjs/react-router-dom.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-router-config@5.1.1/cjs/react-router-config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.28.0/moment.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/antd@4.6.4/dist/antd.js"></script> -->
   </head>
 
   <body>
     <div id="root"></div>
-
-    <script type="systemjs-importmap">
-      {
-        "imports": {
-          "@micro/portal": "/index.js"
-        }
-      }
-    </script>
-    <!-- <script type="systemjs-module" src="import:@micro/portal"></script> -->
-
-    <script type="systemjs-importmap">
-      {
-        "imports": {
-          "@micro/app-web": "http://localhost:9011/index.js"
-        }
-      }
-    </script>
-    <script type="systemjs-module" src="import:@micro/app-web"></script>
-
-    <script type="systemjs-importmap">
-      {
-        "imports": {
-          "@micro/devops-web": "http://localhost:9012/index.js"
-        }
-      }
-    </script>
-    <script type="systemjs-module" src="import:@micro/devops-web"></script>
+    <script src="/index.js"></script>
+    <script src="http://localhost:9011/index.js"></script>
+    <script src="http://localhost:9012/index.js"></script>
     <script>
-      System.import('@micro/portal').then(({ render }) => render());
+      window['@micro/portal'].render();
     </script>
-    <!-- <script>
-      System.import('@micro/portal');
-      System.import('@micro/app-web');
-      System.import('@micro/devops-web');
-    </script> -->
-    <!-- Load the application -->
-    <!-- <script src="/public/main.js"></script> -->
   </body>
 </html>
