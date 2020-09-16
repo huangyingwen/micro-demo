@@ -3,13 +3,14 @@ const env = process.env.BABEL_ENV || process.env.NODE_ENV;
 module.exports = {
   presets: [
     [
-      "@babel/preset-env",
+      '@babel/preset-env',
       {
         targets: {
-          browsers: ["last 2 Chrome versions"],
+          browsers: ['last 2 Chrome versions'],
         },
       },
     ],
-    "@babel/preset-react",
+    '@babel/preset-react',
   ],
+  plugins: ['react-refresh/babel'],
 };

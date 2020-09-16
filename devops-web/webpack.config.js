@@ -54,6 +54,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new ReactRefreshWebpackPlugin(),
     new webpack.ProvidePlugin({
       React: 'react',
     }),
@@ -67,6 +68,8 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     watchOptions: { aggregateTimeout: 300, poll: 1000 },
+    hot: true,
+    hotOnly: true,
     headers: {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',

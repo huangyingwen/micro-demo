@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
 
@@ -52,7 +53,21 @@ module.exports = {
     ],
   },
   plugins: [
-    // new HtmlWebpackPlugin({ template: 'index.html' }),
+    new ReactRefreshWebpackPlugin(),
+    // new HtmlWebpackPlugin({
+    //   inject: false,
+    //   templateContent: ({ htmlWebpackPlugin }) => `
+    //     <html>
+    //       <head>
+    //         ${htmlWebpackPlugin.tags.headTags}
+    //       </head>
+    //       <body>
+    //         <div id="root"></div>
+    //         ${htmlWebpackPlugin.tags.bodyTags}
+    //       </body>
+    //     </html>
+    //   `,
+    // }),
     new CopyWebpackPlugin({
       patterns: [
         {
@@ -124,6 +139,8 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     watchOptions: { aggregateTimeout: 300, poll: 1000 },
+    hot: true,
+    hotOnly: true,
     headers: {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
