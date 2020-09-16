@@ -1,7 +1,7 @@
 import Loadable from 'react-loadable';
 import { Spin } from 'antd';
 
-export default (loader) => {
+export default function loadable(loader) {
   return Loadable({
     loader,
     loading: (props) => {
@@ -11,4 +11,4 @@ export default (loader) => {
       return <Spin />;
     },
   });
-};
+}
