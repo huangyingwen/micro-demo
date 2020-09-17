@@ -16,7 +16,7 @@ module.exports = {
     filename: '[name].js',
     path: path.resolve(__dirname, 'release'),
     libraryTarget: 'this',
-    library: 'devops-web',
+    library: '@micro/devops-web',
     // chunkFilename: '[name].bundle.js',
   },
 

@@ -30,6 +30,7 @@ module.exports = {
     'react-router-config': 'ReactRouterConfig',
     antd: 'antd',
     moment: 'moment',
+    '@micro/devops-web': '@micro/devops-web',
   },
 
   module: {

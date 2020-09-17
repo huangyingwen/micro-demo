@@ -1,9 +1,9 @@
 import { Async } from '@micro/portal';
 
-export default function HomeK({ route }) {
+export default function Home({ route }) {
   return (
     <div>
-      <h2>Devops Homea</h2>
+      <h2>Devops Homesssss</h2>
       <Async />
     </div>
   );

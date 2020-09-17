@@ -1,4 +1,5 @@
 import loadable from './components/loadable';
+import { Home } from '@micro/devops-web';
 
 const routes = [
   {
@@ -11,9 +12,7 @@ const routes = [
   {
     path: '/configs',
     exact: true,
-    component: loadable(() =>
-      import(/* webpackChunkName: "app-configs" */ './components/configs')
-    ),
+    component: Home,
   },
 ];
 
