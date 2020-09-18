@@ -3,6 +3,10 @@ import { patchRoute } from '@micro/portal';
 
 export { default as Home } from './components/home';
 
-// import routes from './routes';
-
-// patchRoute(routes);
+export const render = () => {
+  import(/* webpackChunkName: "routes" */ './routes').then(
+    ({ default: routes }) => {
+      patchRoute(routes);
+    }
+  );
+};

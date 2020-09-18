@@ -21,16 +21,14 @@ module.exports = {
   },
 
   externals: {
-    // react: 'react',
     react: 'React',
-    // 'react-dom': 'react-dom',
     'react-dom': 'ReactDOM',
-    // 'react-router-dom': 'react-router-dom',
     'react-router-dom': 'ReactRouterDOM',
     'react-router-config': 'ReactRouterConfig',
     antd: 'antd',
     moment: 'moment',
     '@micro/devops-web': '@micro/devops-web',
+    '@micro/app-web': '@micro/app-web',
   },
 
   module: {
@@ -55,20 +53,6 @@ module.exports = {
   },
   plugins: [
     new ReactRefreshWebpackPlugin(),
-    // new HtmlWebpackPlugin({
-    //   inject: false,
-    //   templateContent: ({ htmlWebpackPlugin }) => `
-    //     <html>
-    //       <head>
-    //         ${htmlWebpackPlugin.tags.headTags}
-    //       </head>
-    //       <body>
-    //         <div id="root"></div>
-    //         ${htmlWebpackPlugin.tags.bodyTags}
-    //       </body>
-    //     </html>
-    //   `,
-    // }),
     new CopyWebpackPlugin({
       patterns: [
         {

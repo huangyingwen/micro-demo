@@ -21,16 +21,14 @@ module.exports = {
   },
 
   externals: {
-    // react: 'react',
     react: 'React',
-    // 'react-dom': 'react-dom',
     'react-dom': 'ReactDOM',
-    // 'react-router-dom': 'react-router-dom',
     'react-router-dom': 'ReactRouterDOM',
     'react-router-config': 'ReactRouterConfig',
     antd: 'antd',
     moment: 'moment',
     '@micro/portal': '@micro/portal',
+    '@micro/app-web': '@micro/app-web',
   },
 
   module: {

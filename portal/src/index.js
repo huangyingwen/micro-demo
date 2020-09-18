@@ -11,11 +11,22 @@ export const Async = loadable(() =>
 );
 
 export const patchRoute = (route) => {
-  if (Array.isArray(route)) {
-    routes.push(...route);
-  } else {
-    routes.push(route);
-  }
+  import(/* webpackChunkName: "routes" */ './routes').then(
+    ({ default: routes }) => {
+      if (Array.isArray(route)) {
+        routes.push(...route);
+      } else {
+        routes.push(route);
+      }
+      ReactDOM.render(
+        <BrowserRouter>
+          {/* kick it all off with the root route */}
+          <Root>{renderRoutes(routes)}</Root>
+        </BrowserRouter>,
+        document.getElementById('root')
+      );
+    }
+  );
 };
 
 export const render = () => {
