@@ -16,7 +16,7 @@ module.exports = {
     filename: '[name].js',
     path: path.resolve(__dirname, 'release'),
     libraryTarget: 'umd',
-    library: 'devops-web',
+    library: '@micro/devops-web',
     // chunkFilename: '[name].bundle.js',
   },
 
@@ -26,6 +26,8 @@ module.exports = {
     'react-router-dom': 'react-router-dom',
     'react-router-config': 'react-router-config',
     '@micro/portal': '@micro/portal',
+    '@micro/devops-web': '@micro/devops-web',
+    '@micro/app-web': '@micro/app-web',
   },
 
   module: {

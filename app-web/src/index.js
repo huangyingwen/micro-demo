@@ -3,4 +3,6 @@ import { patchRoute } from '@micro/portal';
 
 import routes from './routes';
 
-patchRoute(routes);
+export const render = () => {
+  patchRoute(routes);
+};

@@ -26,6 +26,9 @@ module.exports = {
     'react-router-config': 'react-router-config',
     antd: 'antd',
     moment: 'moment',
+    '@micro/portal': '@micro/portal',
+    '@micro/devops-web': '@micro/devops-web',
+    '@micro/app-web': '@micro/app-web',
   },
 
   module: {

@@ -18,13 +18,7 @@ export const patchRoute = (route) => {
     routes.push(route);
   }
 
-  // ReactDOM.render(
-  //   <BrowserRouter>
-  //     {/* kick it all off with the root route */}
-  //     <Root>{renderRoutes(routes)}</Root>
-  //   </BrowserRouter>,
-  //   document.getElementById('root')
-  // );
+  render();
 };
 
 export const render = () => {
