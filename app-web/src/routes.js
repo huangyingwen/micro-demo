@@ -1,4 +1,4 @@
-import { loadable } from '@micro/portal';
+import { loadable, Assembly } from '@micro/portal';
 import { Home } from '@micro/devops-web';
 
 const routes = [
@@ -16,6 +16,11 @@ const routes = [
     // component: loadable(() =>
     //   import(/* webpackChunkName: "app-configs" */ './components/configs')
     // ),
+  },
+  {
+    path: '/app-assembly',
+    exact: true,
+    component: Assembly,
   },
 ];
 

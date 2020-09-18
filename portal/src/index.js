@@ -10,6 +10,10 @@ export const Async = loadable(() =>
   import(/* webpackChunkName: "async" */ './components/async')
 );
 
+export const Assembly = loadable(() =>
+  import(/* webpackChunkName: "assembly" */ './components/assembly')
+);
+
 export const patchRoute = (route) => {
   import(/* webpackChunkName: "routes" */ './routes').then(
     ({ default: routes }) => {

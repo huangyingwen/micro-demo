@@ -5,14 +5,17 @@ const routes = [
   {
     path: '/',
     exact: true,
-    component: loadable(() =>
-      import(/* webpackChunkName: "app-home" */ './components/home')
-    ),
+    component: loadable(() => import('./components/home')),
   },
   {
     path: '/configs',
     exact: true,
     component: Home,
+  },
+  {
+    path: '/assembly',
+    exact: true,
+    component: loadable(() => import('./components/assembly')),
   },
 ];
 

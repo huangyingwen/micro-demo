@@ -12,16 +12,25 @@ export default function Root({ children }) {
           <Link to="/configs">configs</Link>
         </li>
         <li>
+          <Link to="/assembly">assembly</Link>
+        </li>
+        <li>
           <Link to="/app-home">app-home</Link>
         </li>
         <li>
           <Link to="/app-configs">app-configs</Link>
         </li>
         <li>
+          <Link to="/app-assembly">assembly</Link>
+        </li>
+        <li>
           <Link to="/devops-home">devops-home</Link>
         </li>
         <li>
           <Link to="/devops-configs">devops-configs</Link>
+        </li>
+        <li>
+          <Link to="/devops-assembly">assembly</Link>
         </li>
       </ul>
       {children}

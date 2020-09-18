@@ -1,19 +1,20 @@
-import { loadable } from '@micro/portal';
+import { loadable, Assembly } from '@micro/portal';
 
 const routes = [
   {
     path: '/devops-home',
     exact: true,
-    component: loadable(() =>
-      import(/* webpackChunkName: "devops-home" */ './components/home')
-    ),
+    component: loadable(() => import('./components/home')),
   },
   {
     path: '/devops-configs',
     exact: true,
-    component: loadable(() =>
-      import(/* webpackChunkName: "devops-configs" */ './components/configs')
-    ),
+    component: loadable(() => import('./components/configs')),
+  },
+  {
+    path: '/devops-assembly',
+    exact: true,
+    component: Assembly,
   },
 ];
 
