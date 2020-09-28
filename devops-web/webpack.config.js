@@ -3,6 +3,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
@@ -54,6 +55,7 @@ module.exports = {
     new webpack.ProvidePlugin({
       React: 'react',
     }),
+    new ReactRefreshWebpackPlugin(),
   ].filter(Boolean),
 
   mode: 'development',

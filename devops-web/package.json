@@ -27,6 +27,6 @@
   },
   "scripts": {
     "build": "webpack --progress",
-    "watch": "webpack-dev-server --port 9012"
+    "watch": "webpack-dev-server --port 9012 --hot"
   }
 }
