@@ -25,6 +25,7 @@ module.exports = {
     'react-dom': 'ReactDOM',
     'react-router-dom': 'ReactRouterDOM',
     'react-router-config': 'ReactRouterConfig',
+    'react-refresh/runtime': 'ReactRefresh',
     antd: 'antd',
     moment: 'moment',
     '@micro/portal': '@micro/portal',
@@ -52,7 +53,6 @@ module.exports = {
     ],
   },
   plugins: [
-    new ReactRefreshWebpackPlugin(),
     new webpack.ProvidePlugin({
       React: 'react',
     }),
@@ -61,8 +61,9 @@ module.exports = {
 
   mode: 'development',
 
-  devtool: 'eval-source-map',
+  // devtool: 'eval-source-map',
   // devtool: 'none',
+  devtool: 'cheap-module-source-map',
 
   devServer: {
     historyApiFallback: true,

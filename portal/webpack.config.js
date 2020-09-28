@@ -52,7 +52,6 @@ module.exports = {
     ],
   },
   plugins: [
-    new ReactRefreshWebpackPlugin(),
     new CopyWebpackPlugin({
       patterns: [
         {
@@ -114,12 +113,14 @@ module.exports = {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
       },
     }),
+    new ReactRefreshWebpackPlugin(),
   ],
 
   mode: 'development',
 
-  devtool: 'eval-source-map',
+  // devtool: 'eval-source-map',
   // devtool: 'none',
+  devtool: 'cheap-module-source-map',
 
   devServer: {
     historyApiFallback: true,

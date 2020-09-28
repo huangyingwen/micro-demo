@@ -6,12 +6,13 @@ import loadable from './components/loadable';
 
 export { default as loadable } from './components/loadable';
 
+
 export const Async = loadable(() =>
   import(/* webpackChunkName: "async" */ './components/async')
 );
 
 export const Assembly = loadable(() =>
-  import(/* webpackChunkName: "assembly" */ './components/assembly')
+  import(/* webpackChunkName: "portal-assembly" */ './components/assembly')
 );
 
 export const patchRoute = (route) => {
@@ -46,3 +47,5 @@ export const render = () => {
     }
   );
 };
+
+window.ReactRefresh = require('react-refresh/runtime');

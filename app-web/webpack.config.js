@@ -1,6 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const ReactRefreshWebpackPlugin = require('react-refresh-webpack-plugin');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
 
@@ -25,6 +25,7 @@ module.exports = {
     'react-dom': 'ReactDOM',
     'react-router-dom': 'ReactRouterDOM',
     'react-router-config': 'ReactRouterConfig',
+    'react-refresh/runtime': 'ReactRefresh',
     antd: 'antd',
     moment: 'moment',
     '@micro/portal': '@micro/portal',
