@@ -56,6 +56,7 @@ module.exports = {
     new webpack.ProvidePlugin({
       React: 'react',
     }),
+    new ReactRefreshWebpackPlugin(),
   ].filter(Boolean),
 
   mode: 'development',

@@ -1,6 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const ReactRefreshWebpackPlugin = require('react-refresh-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
 
@@ -55,12 +55,14 @@ module.exports = {
     new webpack.ProvidePlugin({
       React: 'react',
     }),
+    new ReactRefreshWebpackPlugin(),
   ].filter(Boolean),
 
   mode: 'development',
 
-  devtool: 'eval-source-map',
+  // devtool: 'eval-source-map',
   // devtool: 'none',
+  devtool: 'cheap-module-source-map',
 
   devServer: {
     historyApiFallback: true,
