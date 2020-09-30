@@ -3,6 +3,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
+const CustomModuleIdPlugin = require('./custom-module-id-plugin');
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
@@ -52,6 +53,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new CustomModuleIdPlugin(),
     new CopyWebpackPlugin({
       patterns: [
         {

@@ -1,14 +1,9 @@
 import './set-public-path';
 import { patchRoute, loadable } from '@micro/portal';
+import routes from './routes';
 
-export const Assembly = loadable(() =>
-  import(/* webpackChunkName: "assembly" */ './components/assembly')
-);
+export { default as HelloWorld } from './components/export/HelloWorld'
 
 export const render = () => {
-  import(/* webpackChunkName: "routes" */ './routes').then(
-    ({ default: routes }) => {
-      patchRoute(routes);
-    }
-  );
+  patchRoute(routes);
 };

@@ -1,21 +1,16 @@
-import loadable from './components/loadable';
-import { Home } from '@micro/devops-web';
+import Basic from './components/basic';
+import State from './components/state';
 
 const routes = [
   {
     path: '/',
     exact: true,
-    component: loadable(() => import('./components/home')),
+    component: Basic
   },
   {
-    path: '/configs',
+    path: '/state',
     exact: true,
-    component: Home,
-  },
-  {
-    path: '/assembly',
-    exact: true,
-    component: loadable(() => import('./components/assembly')),
+    component: State
   },
 ];
 

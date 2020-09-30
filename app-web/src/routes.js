@@ -1,26 +1,22 @@
-import { loadable, Assembly } from '@micro/portal';
-import { Home } from '@micro/devops-web';
+import  Basic from './components/basic';
+import  State from './components/state';
+import  Integration from './components/integration';
 
 const routes = [
   {
-    path: '/app-home',
+    path: '/app',
     exact: true,
-    component: loadable(() =>
-      import(/* webpackChunkName: "app-home" */ './components/home')
-    ),
+    component: Basic
   },
   {
-    path: '/app-configs',
+    path: '/app/state',
     exact: true,
-    component: Home,
-    // component: loadable(() =>
-    //   import(/* webpackChunkName: "app-configs" */ './components/configs')
-    // ),
+    component: State,
   },
   {
-    path: '/app-assembly',
+    path: '/app/integration',
     exact: true,
-    component: Assembly,
+    component: Integration,
   },
 ];
 
