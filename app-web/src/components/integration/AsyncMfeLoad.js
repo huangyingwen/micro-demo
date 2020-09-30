@@ -1,4 +1,3 @@
-// import {HelloWorld} from '@micro/devops-web';
 
 const HelloWorld = React.lazy(()=>loadMicroFrontend('@micro/devops-web').then((exp)=>{
   console.debug(exp);
@@ -7,7 +6,7 @@ const HelloWorld = React.lazy(()=>loadMicroFrontend('@micro/devops-web').then((e
 
 /**
  * 异步加载微前端。为什么？由于无法确定依赖的微前端是否已经加载了，所以必须通过异步函数来查询并下载。
- * 也就说说本函数还需要实现下载指定微前端的能力。
+ * 也就是说本函数还需要实现下载指定微前端的能力。
  * 以下只是示例。
  * @param {string} id 
  */
@@ -23,9 +22,9 @@ async function loadMicroFrontend(id){
   })
 }
 
-export default function ComplexIntegration(){
+export default function AsyncMfeLoad(){
   return (<div>
-    <h1>Complex Integration:</h1>
+    <h1>Static routes with async micro-frontend load:</h1>
     <React.Suspense fallback={'loading'}>
       <HelloWorld></HelloWorld>
     </React.Suspense>
