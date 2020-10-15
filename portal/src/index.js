@@ -3,46 +3,38 @@ import { BrowserRouter } from 'react-router-dom';
 import { renderRoutes } from 'react-router-config';
 import Root from './components/root';
 import loadable from './components/loadable';
+import routes from './routes'
 
-export { default as loadable } from './components/loadable';
+export { loadable };
 
-export const Async = loadable(() =>
-  import(/* webpackChunkName: "async" */ './components/async')
-);
+export { default as HelloWorld } from './components/export/HelloWorld'
 
-export const Assembly = loadable(() =>
-  import(/* webpackChunkName: "assembly" */ './components/assembly')
-);
+
+// export const Async = loadable(() =>
+//   import(/* webpackChunkName: "async" */ './components/async')
+// );
+
+// export const Assembly = loadable(() =>
+//   import(/* webpackChunkName: "portal-assembly" */ './components/assembly')
+// );
 
 export const patchRoute = (route) => {
-  import(/* webpackChunkName: "routes" */ './routes').then(
-    ({ default: routes }) => {
-      if (Array.isArray(route)) {
-        routes.push(...route);
-      } else {
-        routes.push(route);
-      }
-      ReactDOM.render(
-        <BrowserRouter>
-          {/* kick it all off with the root route */}
-          <Root>{renderRoutes(routes)}</Root>
-        </BrowserRouter>,
-        document.getElementById('root')
-      );
-    }
-  );
+  if (Array.isArray(route)) {
+    routes.push(...route);
+  } else {
+    routes.push(route);
+  }
+  render();
 };
 
 export const render = () => {
-  import(/* webpackChunkName: "routes" */ './routes').then(
-    ({ default: routes }) => {
-      ReactDOM.render(
-        <BrowserRouter>
-          {/* kick it all off with the root route */}
-          <Root>{renderRoutes(routes)}</Root>
-        </BrowserRouter>,
-        document.getElementById('root')
-      );
-    }
+  ReactDOM.render(
+    <BrowserRouter>
+      {/* kick it all off with the root route */}
+      <Root>{renderRoutes(routes)}</Root>
+    </BrowserRouter>,
+    document.getElementById('root')
   );
 };
+
+window.ReactRefresh = require('react-refresh/runtime');

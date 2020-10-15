@@ -3,6 +3,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
+const CustomModuleIdPlugin = require('./custom-module-id-plugin');
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
@@ -52,7 +53,7 @@ module.exports = {
     ],
   },
   plugins: [
-    new ReactRefreshWebpackPlugin(),
+    new CustomModuleIdPlugin(),
     new CopyWebpackPlugin({
       patterns: [
         {
@@ -114,12 +115,14 @@ module.exports = {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
       },
     }),
+    new ReactRefreshWebpackPlugin(),
   ],
 
   mode: 'development',
 
-  devtool: 'eval-source-map',
+  // devtool: 'eval-source-map',
   // devtool: 'none',
+  devtool: 'cheap-module-source-map',
 
   devServer: {
     historyApiFallback: true,

@@ -3,6 +3,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
+const CustomModuleIdPlugin = require('../portal/custom-module-id-plugin');
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
@@ -25,6 +26,7 @@ module.exports = {
     'react-dom': 'ReactDOM',
     'react-router-dom': 'ReactRouterDOM',
     'react-router-config': 'ReactRouterConfig',
+    'react-refresh/runtime': 'ReactRefresh',
     antd: 'antd',
     moment: 'moment',
     '@micro/portal': '@micro/portal',
@@ -52,16 +54,18 @@ module.exports = {
     ],
   },
   plugins: [
-    new ReactRefreshWebpackPlugin(),
+    new CustomModuleIdPlugin(),
     new webpack.ProvidePlugin({
       React: 'react',
     }),
+    new ReactRefreshWebpackPlugin(),
   ].filter(Boolean),
 
   mode: 'development',
 
-  devtool: 'eval-source-map',
+  // devtool: 'eval-source-map',
   // devtool: 'none',
+  devtool: 'cheap-module-source-map',
 
   devServer: {
     historyApiFallback: true,

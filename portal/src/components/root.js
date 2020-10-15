@@ -3,34 +3,23 @@ import { Link } from 'react-router-dom';
 export default function Root({ children }) {
   return (
     <div>
-      <h1>Root</h1>
+      <h1>Showcases</h1>
+      <div>There are three micro frontends: portal, app and devops.</div>
       <ul>
         <li>
-          <Link to="/">home</Link>
+          <Link to="/">Basic</Link>
         </li>
         <li>
-          <Link to="/configs">configs</Link>
+          <Link to="/state">State</Link>
         </li>
         <li>
-          <Link to="/assembly">assembly</Link>
+          <Link to="/app">App Basic</Link>
         </li>
         <li>
-          <Link to="/app-home">app-home</Link>
+          <Link to="/app/state">App State</Link>
         </li>
         <li>
-          <Link to="/app-configs">app-configs</Link>
-        </li>
-        <li>
-          <Link to="/app-assembly">assembly</Link>
-        </li>
-        <li>
-          <Link to="/devops-home">devops-home</Link>
-        </li>
-        <li>
-          <Link to="/devops-configs">devops-configs</Link>
-        </li>
-        <li>
-          <Link to="/devops-assembly">assembly</Link>
+          <Link to="/app/integration">App Integration</Link>
         </li>
       </ul>
       {children}

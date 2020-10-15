@@ -12,4 +12,5 @@ module.exports = {
     ],
     "@babel/preset-react",
   ],
+  plugins: ['react-refresh/babel', "@babel/plugin-proposal-class-properties"],
 };
