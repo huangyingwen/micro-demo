@@ -22,12 +22,11 @@ module.exports = {
   },
 
   externals: {
-    react: 'React',
-    'react-dom': 'ReactDOM',
-    'react-router-dom': 'ReactRouterDOM',
-    'react-router-config': 'ReactRouterConfig',
-    antd: 'antd',
-    moment: 'moment',
+    // 'react-dom': 'ReactDOM',
+    // 'react-router-dom': 'ReactRouterDOM',
+    // 'react-router-config': 'ReactRouterConfig',
+    // antd: 'antd',
+    // moment: 'moment',
     '@micro/devops-web': '@micro/devops-web',
     '@micro/app-web': '@micro/app-web',
   },
@@ -52,59 +51,46 @@ module.exports = {
       },
     ],
   },
+  optimization: {
+    moduleIds: 'hashed',
+    runtimeChunk: 'single',
+    splitChunks: {
+      chunks: 'all',
+      maxInitialRequests: Infinity,
+      // minSize: 0,
+      minSize: 50000,
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name(module) {
+            // get the name. E.g. node_modules/packageName/not/this/part.js
+            // or node_modules/packageName
+            const packageName = module.context.match(
+              /[\\/]node_modules[\\/](.*?)([\\/]|$)/
+            )[1];
+
+            // npm package names are URL-safe, but some servers don't like @ symbols
+            return `npm.${packageName.replace('@', '')}`;
+          },
+        },
+        antd: {
+          test: /[\\/]node_modules[\\/]antd[\\/]/,
+        },
+      },
+    },
+  },
   plugins: [
     new CustomModuleIdPlugin(),
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: path.resolve(__dirname, 'src/index.html'),
-        },
-        {
-          from: path.relative(
-            __dirname,
-            'node_modules/react/umd/react.development.js'
-          ),
-        },
-        {
-          from: path.relative(
-            __dirname,
-            'node_modules/react-dom/umd/react-dom.development.js'
-          ),
-        },
-        {
-          from: path.relative(
-            __dirname,
-            'node_modules/react-router-dom/umd/react-router-dom.js'
-          ),
-        },
-        {
-          from: path.relative(
-            __dirname,
-            'node_modules/react-router-config/umd/react-router-config.js'
-          ),
-        },
-        {
-          from: path.relative(__dirname, 'node_modules/antd/dist/antd.js'),
-        },
-        {
-          from: path.relative(
-            __dirname,
-            'node_modules/moment/min/moment-with-locales.js'
-          ),
-        },
-        {
-          from: path.relative(
-            __dirname,
-            'node_modules/systemjs/dist/system.js'
-          ),
-        },
-        {
-          from: path.relative(
-            __dirname,
-            'node_modules/systemjs/dist/extras/amd.js'
-          ),
-        },
-      ],
+    new HtmlWebpackPlugin({
+      template: './src/index.temp.html',
+      // The following settings are optional and only used for
+      // demo purposes:
+      meta: {
+        charset: { charset: 'utf-8' },
+        viewport: 'width=device-width, initial-scale=1',
+      },
+      minify: false,
+      inject: false,
     }),
     new webpack.ProvidePlugin({
       React: 'react',
@@ -118,11 +104,12 @@ module.exports = {
     new ReactRefreshWebpackPlugin(),
   ],
 
-  mode: 'development',
+  mode: process.env.NODE_ENV,
 
-  // devtool: 'eval-source-map',
+  devtool: 'eval-source-map',
   // devtool: 'none',
-  devtool: 'cheap-module-source-map',
+  // devtool: 'cheap-module-source-map',
+  // devtool: 'none',
 
   devServer: {
     historyApiFallback: true,

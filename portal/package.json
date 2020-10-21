@@ -30,7 +30,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "scripts": {
-    "build": "webpack --progress",
-    "watch": "webpack-dev-server --port 9010 --hot"
+    "build": "NODE_ENV=production webpack --progress",
+    "watch": "NODE_ENV=development webpack-dev-server --port 9010 --hot"
   }
 }
