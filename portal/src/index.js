@@ -4,6 +4,8 @@ import { renderRoutes } from 'react-router-config';
 import Root from './components/root';
 import loadable from './components/loadable';
 
+export * as sharedManage from './lib/sharedManage';
+
 export { default as loadable } from './components/loadable';
 
 export const Async = loadable(() =>
