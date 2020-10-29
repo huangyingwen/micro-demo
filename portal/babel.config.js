@@ -13,5 +13,9 @@ module.exports = {
     ],
     '@babel/preset-react',
   ],
-  plugins: ['react-refresh/babel'],
+  plugins: [
+    'react-refresh/babel',
+    '@babel/plugin-transform-runtime',
+    '@babel/plugin-proposal-optional-chaining',
+  ],
 };

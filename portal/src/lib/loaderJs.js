@@ -7,9 +7,9 @@ function Error() {
   return <Error>js 加载错误</Error>;
 }
 
-const LoaderShareComponent = (module, componentName, url) => () => {
+const loaderShareComponent = (module, componentName, url) => () => {
   const [loading, setLoading] = useState(true);
-  const compRef = useRef();
+  const compRef = useRef(window[module]?.[componentName]);
 
   const onload = () => {
     compRef.current = window[module][componentName];
@@ -17,11 +17,11 @@ const LoaderShareComponent = (module, componentName, url) => () => {
   };
   const onerror = () => {
     compRef.current = Error;
-    console.log('Comp=========', Comp, loading);
     setLoading(false);
   };
 
   useEffect(() => {
+    if (compRef.current) return;
     if (queue.has(module)) {
       const events = queue.get(module);
       events.push({ onload, onerror });
@@ -58,7 +58,7 @@ const LoaderShareComponent = (module, componentName, url) => () => {
 
   const Comp = compRef.current;
 
-  return loading ? <Spin /> : <Comp />;
+  return Comp ? <Comp /> : <Spin />;
 };
 
-export default LoaderShareComponent;
+export default loaderShareComponent;

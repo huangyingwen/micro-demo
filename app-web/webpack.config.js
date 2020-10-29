@@ -28,12 +28,7 @@ module.exports = {
     antd: 'antd',
     moment: 'moment',
     '@micro/portal': '@micro/portal',
-    '@micro/devops-web': [
-      '@micro/portal',
-      'sharedManage',
-      'default',
-      '@micro/devops-web',
-    ],
+    '@micro/devops-web': ['@micro/portal', 'sharedManage', '@micro/devops-web'],
   },
 
   module: {
